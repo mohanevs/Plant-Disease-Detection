@@ -1,7 +1,3 @@
-Here's a professional and clear `README.md` file tailored for your GitHub repository on **Plant Disease Detection using CNN (Keras + TensorFlow)**:
-
----
-
 # 🌿 Plant Disease Detection using CNN (Keras + TensorFlow)
 
 This project aims to detect plant diseases using a Convolutional Neural Network (CNN) built with TensorFlow and Keras. A simple and interactive web interface is also provided for easy testing via image uploads.
