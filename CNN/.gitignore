@@ -1,0 +1,4 @@
+env/
+myenv/
+venv/
+CNN\plant_disease_final_model.h5

@@ -1,0 +1,7 @@
+Model Info:
+
+* Accuracy: 61%
+* Training Data: 12,000 images
+* Classes: 24
+
+Crafted with ❤️ by Vaibhavsingh Mohane

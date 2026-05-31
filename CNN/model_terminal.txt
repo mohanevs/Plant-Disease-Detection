@@ -1,0 +1,104 @@
+plant disease detection> python modelv2.py
+2025-03-27 22:33:17.099946: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-03-27 22:33:17.859601: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Found 12000 images belonging to 24 classes.
+Found 12000 images belonging to 24 classes.
+Class indices: {'Apple___Apple_scab': 0, 'Apple___Black_rot': 1, 'Apple___Cedar_apple_rust': 2, 'Apple___healthy': 3, 'Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot': 4, 'Corn_(maize)___Common_rust_': 5, 'Corn_(maize)___Northern_Leaf_Blight': 6, 'Corn_(maize)___healthy': 7, 'Grape___Black_rot': 8, 'Grape___Esca_(Black_Measles)': 9, 'Grape___Leaf_blight_(Isariopsis_Leaf_Spot)': 10, 'Grape___healthy': 11, 'Potato___Early_blight': 12, 'Potato___Late_blight': 13, 'Potato___healthy': 14, 'Strawberry___Leaf_scorch': 15, 'Strawberry___healthy': 16, 'Tomato___Bacterial_spot': 17, 'Tomato___Early_blight': 18, 'Tomato___Late_blight': 19, 'Tomato___Leaf_Mold': 20, 'Tomato___Septoria_leaf_spot': 21, 'Tomato___Tomato_Yellow_Leaf_Curl_Virus': 22, 'Tomato___healthy': 23}
+plant disease detection\myenv\Lib\site-packages\keras\src\layers\convolutional\base_conv.py:107: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
+  super().__init__(activity_regularizer=activity_regularizer, **kwargs)
+2025-03-27 22:33:20.492150: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ conv2d (Conv2D)                      │ (None, 224, 224, 32)        │             896 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization                  │ (None, 224, 224, 32)        │             128 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ conv2d_1 (Conv2D)                    │ (None, 224, 224, 32)        │           9,248 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_1                │ (None, 224, 224, 32)        │             128 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ max_pooling2d (MaxPooling2D)         │ (None, 112, 112, 32)        │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout (Dropout)                    │ (None, 112, 112, 32)        │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ conv2d_2 (Conv2D)                    │ (None, 112, 112, 64)        │          18,496 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_2                │ (None, 112, 112, 64)        │             256 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ conv2d_3 (Conv2D)                    │ (None, 112, 112, 64)        │          36,928 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_3                │ (None, 112, 112, 64)        │             256 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ max_pooling2d_1 (MaxPooling2D)       │ (None, 56, 56, 64)          │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout_1 (Dropout)                  │ (None, 56, 56, 64)          │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ conv2d_4 (Conv2D)                    │ (None, 56, 56, 128)         │          73,856 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_4                │ (None, 56, 56, 128)         │             512 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ conv2d_5 (Conv2D)                    │ (None, 56, 56, 128)         │         147,584 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_5                │ (None, 56, 56, 128)         │             512 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ max_pooling2d_2 (MaxPooling2D)       │ (None, 28, 28, 128)         │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout_2 (Dropout)                  │ (None, 28, 28, 128)         │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ flatten (Flatten)                    │ (None, 100352)              │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense (Dense)                        │ (None, 512)                 │      51,380,736 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ batch_normalization_6                │ (None, 512)                 │           2,048 │
+│ (BatchNormalization)                 │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout_3 (Dropout)                  │ (None, 512)                 │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense_1 (Dense)                      │ (None, 24)                  │          12,312 │
+└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘
+ Total params: 51,683,896 (197.16 MB)
+ Trainable params: 51,681,976 (197.15 MB)
+ Non-trainable params: 1,920 (7.50 KB)
+ UserWarning: Your `PyDataset` class should call `super().__init__(**kwargs)` in its constructor. `**kwargs` can include `workers`, `use_multiprocessing`, `max_queue_size`. Do not pass these arguments to `fit()`, as they will be ignored.
+  self._warn_if_super_not_called()
+Epoch 1/5
+375/375 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.4489 - loss: 1.9945C:\Users\ASUS\Desktop\plant disease detection\myenv\Lib\site-packages\keras\src\trainers\data_adapters\py_dataset_adapter.py:121: UserWarning: Your `PyDataset` class should call `super().__init__(**kwargs)` in its constructor. `**kwargs` can include `workers`, `use_multiprocessing`, `max_queue_size`. Do not pass these arguments to `fit()`, as they will be ignored.
+  self._warn_if_super_not_called()
+
+Epoch 1: val_loss improved from inf to 6.17924, saving model to best_plant_disease_model.h5
+WARNING:absl:You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`.
+375/375 ━━━━━━━━━━━━━━━━━━━━ 838s 2s/step - accuracy: 0.4493 - loss: 1.9930 - val_accuracy: 0.1018 - val_loss: 6.1792 - learning_rate: 1.0000e-04
+Epoch 2/5
+375/375 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.7274 - loss: 0.8378   
+Epoch 2: val_loss improved from 6.17924 to 1.92179, saving model to best_plant_disease_model.h5
+WARNING:absl:You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`.
+375/375 ━━━━━━━━━━━━━━━━━━━━ 834s 2s/step - accuracy: 0.7275 - loss: 0.8377 - val_accuracy: 0.6149 - val_loss: 1.9218 - learning_rate: 1.0000e-04
+Epoch 3/5
+375/375 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.7843 - loss: 0.6681   
+Epoch 3: val_loss did not improve from 1.92179
+375/375 ━━━━━━━━━━━━━━━━━━━━ 835s 2s/step - accuracy: 0.7843 - loss: 0.6680 - val_accuracy: 0.6328 - val_loss: 1.9656 - learning_rate: 1.0000e-04
+Epoch 4/5
+375/375 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.8301 - loss: 0.5555
+Epoch 4: val_loss did not improve from 1.92179
+375/375 ━━━━━━━━━━━━━━━━━━━━ 836s 2s/step - accuracy: 0.8301 - loss: 0.5554 - val_accuracy: 0.6228 - val_loss: 2.0772 - learning_rate: 1.0000e-04
+Epoch 5/5
+375/375 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.8516 - loss: 0.4654
+Epoch 5: val_loss did not improve from 1.92179
+375/375 ━━━━━━━━━━━━━━━━━━━━ 833s 2s/step - accuracy: 0.8516 - loss: 0.4653 - val_accuracy: 0.6012 - val_loss: 2.3473 - learning_rate: 1.0000e-04
+Restoring model weights from the end of the best epoch: 2.
+
+Evaluating model on validation set...
+375/375 ━━━━━━━━━━━━━━━━━━━━ 119s 318ms/step - accuracy: 0.5063 - loss: 2.6286
+Validation Accuracy: 61.49%
+WARNING:absl:You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`.
+Model saved as 'plant_disease_final_model.h5'
+PS C:\Users\ASUS\Desktop\plant disease detection>

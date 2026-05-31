@@ -1,0 +1,45 @@
+📁 Dataset Note
+This project is based on the publicly available PlantVillage dataset, originally sourced from:
+
+Kaggle Dataset: PlantVillage Dataset by AbdallahAlidev
+
+Download Link-
+https://www.kaggle.com/datasets/abdallahalidev/plantvillage-dataset
+
+🔸 Original Dataset Info:
+
+Contains 38 plant disease and healthy leaf classes.
+
+
+🔹 Modifications for This Project:
+
+Only 24 classes were selected from the original 38.
+
+Each class was balanced to 500 images to maintain uniformity across categories and reduce overall size.
+
+The selected class labels used in this project are:
+
+Apple Apple Scab  
+Apple Black Rot  
+Apple Cedar Apple Rust  
+Apple Healthy  
+Corn Cercospora Leaf Spot Gray Leaf Spot  
+Corn Common Rust  
+Corn Northern Leaf Blight  
+Corn Healthy  
+Grape Black Rot  
+Grape Esca Black Measles  
+Grape Leaf Blight Isariopsis Leaf Spot  
+Grape Healthy  
+Potato Early Blight  
+Potato Late Blight  
+Potato Healthy  
+Strawberry Leaf Scorch  
+Strawberry Healthy  
+Tomato Bacterial Spot  
+Tomato Early Blight  
+Tomato Late Blight  
+Tomato Leaf Mold  
+Tomato Septoria Leaf Spot  
+Tomato Yellow Leaf Curl Virus  
+Tomato Healthy
