@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
+import requests
 from tensorflow.keras.models import load_model
 from PIL import Image
 from tensorflow.keras.preprocessing import image
@@ -8,10 +9,21 @@ import numpy as np
 app = Flask(__name__)
 UPLOAD_FOLDER = 'static/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-model = load_model('plant_disease_final_model.h5')
+# Load model from Hugging Face on startup
+MODEL_PATH = 'plant_disease_final_model.h5'
+
+if not os.path.exists(MODEL_PATH):
+    print("Downloading model from Hugging Face...")
+    url = "https://huggingface.co/mohanevs/plant-disease-model/resolve/main/plant_disease_final_model.h5"
+    r = requests.get(url, stream=True)
+    with open(MODEL_PATH, 'wb') as f:
+        for chunk in r.iter_content(chunk_size=8192):
+            f.write(chunk)
+    print("Model downloaded!")
+
+model = load_model(MODEL_PATH)
 
 def predict_disease(img_path):
     img = image.load_img(img_path, target_size=(224, 224))  
