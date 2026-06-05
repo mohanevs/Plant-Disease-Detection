@@ -1,0 +1,8 @@
+tensorflow-cpu
+matplotlib
+Flask
+numpy
+Pillow
+requests
+gunicorn
+Werkzeug
